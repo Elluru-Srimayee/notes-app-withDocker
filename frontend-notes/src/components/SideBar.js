@@ -1,5 +1,7 @@
 import { use, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config/api";
+
 function SideBar() {  
   const [notes,setNotes]=useState([]);  
   const navigate = useNavigate();
