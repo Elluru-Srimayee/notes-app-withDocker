@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import NavigationBar from './components/NavigationBar';
-import SideBar from './components/SideBar';
+// import NavigationBar from './components/NavigationBar';
+// import SideBar from './components/SideBar';
 import './components/sidebar.css';
-import NotesBody from './components/NotesBody';
+// import NotesBody from './components/NotesBody';
 import Login from './components/Login';
 import Register from './components/Register';
 import HomePage from './components/HomePage';
