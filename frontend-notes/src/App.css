@@ -1,0 +1,614 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.App-header {
+  background-color: #434851;
+  /* min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center; */
+  /* justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
+  color: rgb(253, 253, 254);
+}
+
+.NavigationBar{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background-color: #434851;
+  z-index:1000;
+}
+
+.NavigationBar p{
+  cursor: pointer;
+  /* padding: 15px 20px; */
+}
+
+.NavigationBar p:hover{
+  text-decoration: underline;
+}
+
+select{
+  cursor: pointer;
+  font-size:16px;
+  background-color:#434851;
+  color:white;
+}
+select:hover{
+  text-decoration:underline;
+}
+
+.App-Sidebar {
+  position:fixed;
+  flex-direction: column;
+  display: flex;
+  width: 18%;  /* Retains full width of parent */
+  margin-top:54px;
+  height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);  /* Modern gradient background for depth */
+  padding: 20px;  /* Increased padding for better breathing room */
+  border-radius: 12px;  /* Slightly more rounded for a softer look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* Enhanced shadow for more prominence */
+  overflow-y:auto;  /* Keeps scrolling for overflow */
+  border: 1px solid #dee2e6;  /* Subtle border for definition */
+  z-index: 999;
+}
+
+.App-Sidebar h2 {
+  font-size: 22px;  /* Slightly larger for emphasis */
+  color: #6c6d6e;  /* Darker, more readable color */
+  margin-bottom: 20px;  /* More space below */
+  font-weight: 600;  /* Semi-bold for a modern feel */
+  /* text-align: center; */
+  padding-left: 5%;
+  text-transform: uppercase;  /* Adds a sleek, professional touch */
+  letter-spacing: 1px;  /* Spacing for readability */
+}
+
+.App-Sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App-Sidebar li {
+  padding: 12px 15px;  /* Increased padding for better clickability */
+  border-bottom: 1px solid #adb5bd;  /* Softer border color */
+  cursor: pointer;
+  transition: all 0.3s ease;  /* Smooth transition for multiple properties */
+  font-size: 16px;
+  color: #343a40;  /* Consistent dark color */
+  border-radius: 6px;  /* Rounded corners on items */
+  margin-bottom: 5px;  /* Space between items */
+}
+
+.App-Sidebar li:hover {
+  background-color: #d1ecf1;  /* Light blue hover for a fresh feel */
+  color: #0c5460;  /* Darker text on hover for contrast */
+  transform: translateX(5px);  /* Subtle slide effect on hover */
+}
+
+.App-Body{
+  flex-direction: row;
+  display:flex;
+  background-color: #e9ecef;
+  /* border:1px solid black; */
+}
+.App-NotesBody{
+  flex-direction: row;
+  display: flex;
+  /* border: 1px solid black;  */
+  margin-top: 5%;
+  margin-left: 22%;
+  width:100%;
+  height: 100%;
+}
+.note-card:hover {
+  box-shadow: 0px 6px 16px rgba(100, 149, 237, 0.3); /* Enhanced shadow on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.note-card{
+  padding: 3%;
+  margin: 2%;
+  box-shadow: 0px 4px 12px rgba(100, 149, 237, 0.2);
+  border-radius: 8px;
+  border: 1px solid #6495ed;
+  background-color: #ffffff;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"]{
+  width: 100%;
+  height: auto;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #0078d4;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #0078d4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #116eb0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.AddButton{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background-color:#00d42e;
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  font-size:30px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  cursor:pointer;
+}
+
+/* Existing .Display-Body styles (updated for better centering) */
+.Display-Body {
+    flex-direction: column;
+    display: flex;
+    background-color: #f1f5f9;
+    width: 100%;
+    height: 84vh; /* Changed to 100vh for full height */
+    margin-top: 54px;
+    color: black;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+}
+
+/* New Card Styles */
+.notes-card {
+    background: white;
+    border-radius: 12px;
+    margin-left: 15%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Cool shadow for depth */
+    width: 100%;
+    max-width: 600px; /* Limit width for readability */
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effect */
+    padding: 3%
+}
+
+.notes-card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #506bdf 0%, #7b08ed 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.notes-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.notes-description {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    justify-content: center;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Slight grow on hover */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #bd2130;
+}
+
+/* Empty Card for No Data */
+.empty-card {
+    text-align: center;
+    padding: 40px;
+    background: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .notes-card {
+        max-width: 90%;
+    }
+    .card-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+
+/* =========================
+   Design Tokens / Theme
+   ========================= */
+:root {
+  --surface-1: #ffffff;
+  --surface-2: #f7f7fb;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --accent-400: #86efac;
+  --accent-500: #22c55e;
+  --accent-600: #16a34a;
+  --ring: rgba(34, 197, 94, 0.35);
+
+  /* Animated background palette */
+  --bg1: #d1fae5; /* emerald-100 */
+  --bg2: #a7f3d0; /* emerald-200 */
+  --bg3: #6ee7b7; /* emerald-300 */
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-1: #111827;
+    --surface-2: #0f172a;
+    --text: #e5e7eb;
+    --text-muted: #94a3b8;
+    --ring: rgba(22, 163, 74, 0.35);
+
+    --bg1: #0f172a; /* slate-900 */
+    --bg2: #064e3b; /* emerald-900 */
+    --bg3: #065f46; /* emerald-800 */
+  }
+}
+
+/* Base reset bits (optional) */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* =========================
+   Welcome Layout
+   ========================= */
+.welcome-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;      /* full viewport height */
+  padding: 2rem;
+  overflow: hidden;       /* keep animated bg within bounds */
+  isolation: isolate;     /* ensure bg stays under content */
+  /* Subtle overall backdrop */
+  background: linear-gradient(
+    180deg,
+    rgba(34, 197, 94, 0.06),
+    rgba(34, 197, 94, 0.00)
+  );
+}
+
+/* ===== Animated Background Layer ===== */
+.welcome-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 600px at 10% 20%, var(--bg2), transparent 60%),
+    radial-gradient(800px 400px at 90% 80%, var(--bg3), transparent 60%),
+    radial-gradient(600px 300px at 50% 50%, var(--bg1), transparent 60%);
+  filter: saturate(1.05);
+  animation: welcomeBgShift 16s ease-in-out infinite alternate;
+}
+
+/* Soft film grain for depth */
+.welcome-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Floating blobs (CSS-only) */
+.welcome-blob {
+  position: absolute;
+  width: 42vmax;
+  height: 42vmax;
+  background: radial-gradient(circle at 30% 30%, rgba(34,197,94,0.35), rgba(34,197,94,0.08) 55%, transparent 60%);
+  filter: blur(30px);
+  border-radius: 50%;
+  animation: welcomeFloat 24s ease-in-out infinite;
+  will-change: transform;
+}
+.welcome-blob1 { top: -10vmax; left: -8vmax; animation-delay: 0s; }
+.welcome-blob2 { bottom: -14vmax; right: -10vmax; animation-delay: 6s; }
+.welcome-blob3 { top: 40%; left: 55%; animation-delay: 12s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-bg, .welcome-blob { animation: none !important; }
+}
+
+/* Background animations */
+@keyframes welcomeBgShift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(0,-2%,0) scale(1.02); }
+}
+@keyframes welcomeFloat {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(2vmax, -1.5vmax, 0) scale(1.05); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* =========================
+   Card
+   ========================= */
+.welcome-card {
+  width: min(960px, 100%);
+  background: var(--surface-1);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.08),
+    0 2px 8px rgba(0,0,0,0.04);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 1.5rem;
+  backdrop-filter: saturate(1.05) blur(2px);
+  animation: welcomeFadeIn 500ms ease-out;
+}
+
+@media (max-width: 860px) {
+  .welcome-card { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Illustration & Header
+   ========================= */
+.welcome-illustration {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background:
+    radial-gradient(120px 60px at 20% 30%, rgba(34,197,94,0.12), transparent),
+    radial-gradient(120px 60px at 80% 70%, rgba(34,197,94,0.12), transparent);
+}
+
+.welcome-header { align-self: center; }
+
+.welcome-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: var(--text);
+  margin: 0 0 .5rem;
+}
+
+.welcome-highlight { color: var(--accent-600); }
+
+.welcome-subtitle { color: var(--text-muted); margin: 0; }
+
+/* =========================
+   Actions
+   ========================= */
+.welcome-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  padding: .75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  outline: none;
+}
+
+.primary-btn {
+  background: var(--accent-600);
+  color: white;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+}
+.primary-btn:focus-visible {
+  box-shadow: 0 0 0 4px var(--ring);
+  transform: translateY(-1px);
+}
+.primary-btn:hover { transform: translateY(-1px); }
+
+.secondary-btn {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.secondary-btn:hover { background: rgba(0,0,0,0.03); }
+.secondary-btn:focus-visible {
+  box-shadow: 0 0 0 4px var(--ring);
+  transform: translateY(-1px);
+}
+
+.btn-icon { font-size: 1.15em; }
+
+/* Divider & Tips */
+.welcome-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent);
+  margin: 1.25rem 0;
+}
+
+.tips-title {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0 0 .5rem;
+}
+
+.tip-list {
+  margin: 0 0 .75rem;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+}
+.tip-list li { margin: .25rem 0; }
+
+.welcome-link {
+  color: var(--accent-600);
+  text-decoration: none;
+  font-weight: 600;
+}
+.welcome-link:hover { text-decoration: underline; }
+
+/* Entrance animation */
+@keyframes welcomeFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
