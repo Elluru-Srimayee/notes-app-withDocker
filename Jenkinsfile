@@ -26,7 +26,7 @@ pipeline{
 
         stage('Frontend Build') {
             steps {
-                dir('frontend') {
+                dir('frontend-notes') {
                     bat 'npm install'
                     bat 'npm run build'
                 }
