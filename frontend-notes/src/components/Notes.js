@@ -30,8 +30,8 @@ function Notes(){
         e.preventDefault();
         const isEdit = location.state?.id;
         const endpoint = isEdit
-            ? `${API_BASE_URL}/UpdateNotes`
-            : `${API_BASE_URL}/AddNotes`;
+            ? `api/UpdateNotes`
+            : `api/AddNotes`;
 
         const payload = {
             title: formData.title,

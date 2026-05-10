@@ -12,7 +12,7 @@ function NotesBody() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/notes`, {
+        const response = await fetch(`api/notes`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ function NotesBody() {
     e.stopPropagation(); // Prevents triggering parent div's onClick
     e.preventDefault();
     try{
-        const response = await fetch(`${API_BASE_URL}/DeleteNotes/${id}`,{
+        const response = await fetch(`api/DeleteNotes/${id}`,{
             method:'DELETE',
             headers:{
                 'Content-Type':'application/json',

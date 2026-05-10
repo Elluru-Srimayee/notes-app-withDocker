@@ -6,7 +6,7 @@ function SideBar() {
   const [notes,setNotes]=useState([]);  
   const navigate = useNavigate();
   useEffect(()=>{  
-    fetch(`${API_BASE_URL}/login`,{  
+    fetch(`api/login`,{  
       method:'GET', 
       headers:{  
         'Content-Type':'application/json'  
