@@ -2,7 +2,7 @@ import NavigationBar from "./NavigationBar";
 import SideBar from "./SideBar";
 import {React, useEffect, useState} from "react";  
 import { useLocation, useNavigate } from "react-router-dom";
-import API_BASE_URL from "../config/api";
+// import API_BASE_URL from "../config/api";
 function Notes(){
     const navigate= useNavigate();
     const location = useLocation();

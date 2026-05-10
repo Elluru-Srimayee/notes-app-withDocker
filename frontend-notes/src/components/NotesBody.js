@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Notes from './Notes';
-import API_BASE_URL from "../config/api";
+// import API_BASE_URL from "../config/api";
 
 function NotesBody() {
   const [notes, setNotes] = useState([]);  // Store fetched notes

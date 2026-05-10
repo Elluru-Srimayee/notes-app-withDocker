@@ -1,6 +1,6 @@
 import "./Login.css"
 import React, { useState } from "react";
-import API_BASE_URL from "../config/api";
+// import API_BASE_URL from "../config/api";
 
 function Register() {
 
@@ -27,7 +27,7 @@ function Register() {
         setIsLoading(true);
         setMessage('');
         try{
-            const response = await fetch(`${API_BASE_URL}/register`,{
+            const response = await fetch(`api/register`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'  
