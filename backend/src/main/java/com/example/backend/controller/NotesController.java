@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.model.notes;
-import com.example.backend.repository.NotesRepository;
 import com.example.backend.service.NotesService;
 
 @RestController
